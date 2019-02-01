@@ -32,3 +32,28 @@
      [ubuntu]
      rbn1.mylabserver.com
 #### On 1 group I am identifying myself as a node called localhost. Typically, you are going to run ansible as a not privilaged user. But that non-previlaged user should have sudo rights
+  * adduser ansible 
+  * passwd ansible
+#### vi sudo
+  * just below root ALL=(ALL) ALL
+  * add ansible ALL=(ALL) NOPASSWD: ALL 
+#### GO to centos machine
+  * do adduser ansible 
+  * passwd ansible
+  * visudo and same process as on top
+#### Go to ubuntu machine 
+  * same process repeated 
+#### So, on our system we can do sudo apt-get update 
+#### Come back to localhost
+#### Note: Since we operate over ssh and and since we will not be passing in a password, we don't have to add a password when we run a playbook either. This is because most of the time when you develop a playbook, you will be running in a cron jobs or jenkins jobs
+#### In that case, we should set up ssh key exchange. So,
+  * su ansible -
+  * ssh-keygen
+  * ssh-copy-id ansible@rbn.mylabserver.com
+#### Once that's done, you can ssh to rbn.mylabserver.com
+#### Same thing with ubuntu
+  * ssh-copy-id ansible@rbn1.mylabserver.com
+  * now you are able to ssh rbn1.mylabserver.com
+#### ssh-copy-id localhost
+  * now you can do ssh localhost to have connection without having to login
+## You are now ready to use ansible environment
