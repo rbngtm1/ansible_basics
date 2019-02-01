@@ -7,3 +7,5 @@
   * sudo su --first go to root
 #### How do I enable the EPEL repository for my Amazon EC2 instance running CentOS, RHEL, or Amazon Linux?
   * https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/
+#### update local caches
+  * yum update 
