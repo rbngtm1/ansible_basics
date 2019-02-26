@@ -40,4 +40,10 @@ vi /etc/sysconfig/jenkins -- to see the ports open
 ant, maven -java
 npm -angular and javascript
 msbuild -C#
+...........................
+ansible --configuration manager
+after the jenkins .war file are generated, ansible helps in deploying into multiple servers(50 server for ex.)
+ansible: just with ssh connection.
+puppet: agent must be installed in every node.  
+chef: chef agent must be installed in every node.
 
