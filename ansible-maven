@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: mr.india
   become: true
   tasks:
     - name: Check If maven is already installed or not
@@ -9,12 +9,12 @@
       debug: "msg={{maven_installed.stdout}}"
     - name: Downloading Maven file
       get_url:
-        url: http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-        dest: /opt/apache-maven-3.3.9-bin.tar.gz
+        url: http://apache.cs.utah.edu/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+        dest: /opt/apache-maven-3.6.0-bin.tar.gz
     - name: Extracting  Maven archive
-      command: chdir=/usr/share /bin/tar xvf /opt/apache-maven-3.3.9-bin.tar.gz -C /opt/ creates=/opt/apache-maven-3.3.9
+      command: chdir=/usr/share /bin/tar xvf /opt/apache-maven-3.6.0-bin.tar.gz -C /opt/ creates=/opt/apache-maven-3.6.0
     - name: Symlink install directory
-      file: src=/opt/apache-maven-3.3.9/bin/mvn path=/usr/bin/mvn state=link
+      file: src=/opt/apache-maven-3.6.0/bin/mvn path=/usr/bin/mvn state=link
     - name: Configure maven and its environment variables
       lineinfile:
         dest: "/etc/profile.d/maven.sh"
@@ -22,7 +22,7 @@
         create: yes
         state: present
       with_items:
-        - { line: 'M2_HOME=/opt/apache-maven-3.3.9' }
+        - { line: 'M2_HOME=/opt/apache-maven-3.6.0' }
         - { line: 'PATH=$PATH:$M2_HOME/bin' }
     - name: Exports/Run maven env file for make M2_HOME available globally
       shell: "source /etc/profile.d/maven.sh"
