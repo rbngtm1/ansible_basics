@@ -1,0 +1,13 @@
+---
+- name: Installing httpd
+  hosts: web
+  become: true
+  tasks: 
+    - name: Installing httpd
+      yum:
+        name: httpd
+        state: present
+    - name: Copying the file
+      copy: 
+        src: /home/ec2-user/ansible/files/httpd.conf
+        dest: /var/www/html/index.html
