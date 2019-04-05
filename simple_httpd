@@ -11,3 +11,9 @@
       copy: 
         src: /home/ec2-user/ansible/files/httpd.conf
         dest: /var/www/html/index.html
+        mode: 0644
+        backup: yes
+    - name: Starting the service
+      service: 
+        name: httpd
+        state: started
