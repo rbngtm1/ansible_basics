@@ -1,0 +1,24 @@
+--- #Notification and Handling events
+- hosts: centos
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  connection: ssh
+  tasks: 
+  - name: install nginx web server
+    yum: 
+      name: nginx
+      state: latest
+    notify:
+    - enable and start the nginx service
+  handlers:
+  - name: enable and start nginx service
+    service: 
+      name: nginx
+      enabled: yes
+      state: restarted 
+      
+      
+      
+you may need to run sudo yum install epel-release before running playbook 
