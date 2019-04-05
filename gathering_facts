@@ -1,2 +1,6 @@
 1. ansible (hosts group) -m setup
 2. you may use above info with something like grep ipv4
+3. you may also use filter on any secton using below command
+4. ansible (hosts group) -m setup -a 'filter=*ipv4*' (pull anything that has ipv4 in it)
+5 you may now save all those information gathered using the following command in a folder.
+6. ansible (hosts group) -m setup --tree facts 
