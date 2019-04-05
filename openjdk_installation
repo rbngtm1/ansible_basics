@@ -11,7 +11,7 @@
     - name: untaring on target
       shell: "tar -xvzf /home/ec2-user/jdk-8u201-linux-x64.tar.gz"
     - name: alternatives command
-      shell: "alternatives --install /usr/bin/java java /home/ec2-user/jdk-8u201-linux-x64.tar.gz/java 1"
+      shell: "alternatives --install /usr/bin/java java /home/ec2-user/jdk-8u201-linux-x64/bin/java 1"
     - name: alternatives config command
       shell: 'echo "1" | alternatives --config java'
 #shell: "alternatives --config /home/ec2-user/jdk-8u201-linux-x64.tar.gz/java -2"
