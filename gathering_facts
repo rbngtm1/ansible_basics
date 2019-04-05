@@ -1,0 +1,2 @@
+1. ansible (hosts group) -m setup
+2. you may use above info with something like grep ipv4
