@@ -14,3 +14,18 @@
         state: latest
       register: result
     - debug: var=result 
+
+=============================================
+--- 
+- name: Debug Playbook
+  hosts: web
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Reading the file
+      command: "cat /etc/resolv.conf"
+      register: result
+      
+    - debug:
+        var: result
+ now press command== ansible-playbook -i ../hosts debug.yml
