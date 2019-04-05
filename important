@@ -1,0 +1,2 @@
+#### Uninstall a service in another machine
+  * ansible (hostgroup) -s -m yum -a "name=telnet state=absent"
