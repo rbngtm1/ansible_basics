@@ -14,3 +14,6 @@
     yum:
       name: '{{ pkg }}'
       state: latest
+
+now you can pass in variable to the above playbook by:
+ansible-playbook blabla.yml --extra-vars "myhosts=centos gather=yes pkg=telnet"
