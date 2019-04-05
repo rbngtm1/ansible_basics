@@ -6,7 +6,7 @@
   connection: ssh
   gather_facts: '{{ gather }}'
   vars: 
-    myhost: centos
+    myhosts: centos
     gather: yes
     pkg: telnet
   tasks:
