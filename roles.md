@@ -6,5 +6,15 @@
 6. let's edit the main.yml file with something like below:
 ```yml
 ---
-- name
+- name: Installing httpd
+  yum:
+    name: httpd
+    state: latest
+  notify: restart httpd
+- name: copying the file
+  copy:
+    src: index.html
+    dest: "{{ dest }}/index.html"
+    mode: 0766
+  notify: restart httpd
 ```
