@@ -4,7 +4,7 @@
 4. Inside httpd folder, you have many directories
 5. Inside tasks directory, you will see something called main.yml (which will match dependencies for your variable)
 6. let's edit the main.yml file with something like below:
-'''yml
+```yml
 ---
 - name
-'''
+```
