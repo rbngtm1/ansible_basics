@@ -18,3 +18,17 @@
     mode: 0766
   notify: restart httpd
 ```
+7. Let's have our source file (index.html) inside files directory
+8. vi index.html and write sth
+9. Let's go to handlers directory and change main.yml file with something below:
+```yml
+---
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
+```
+10. Let's go inside var directory and edit the main.yml
+```yml
+dest: "var/www/html"
+```
