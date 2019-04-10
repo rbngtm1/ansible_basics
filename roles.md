@@ -30,7 +30,7 @@
 ```
 10. Let's go inside var directory and edit the main.yml
 ```yml
-dest: "var/www/html"
+dest: "/var/www/html"
 ```
 ##### Note: Your default path for ansible roles is set inside /etc/ansible/ansible.cfg --vi and search for sth with ansible_path, you may change the path as per your need
 
