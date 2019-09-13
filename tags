@@ -25,3 +25,4 @@
         
    ## We provide tags so that we can only run particular block of code in playbook, but tag is smart enough to connect between two tags, In this case we have install and restart called in tags 
    ## now two task will be executed with this playbook, eg: ansible-playbook -i ../hosts httpd.yml --tags install (will only run tags with install i.e 2 block will run)
+   ## --skip-tags restart/intall/all (in case you want to run that don't has tags)
