@@ -27,5 +27,5 @@
       register: result
       
     - debug:
-        var: result
+        var: result.stdout
  now press command== ansible-playbook -i ../hosts debug.yml
