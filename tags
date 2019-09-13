@@ -1,0 +1,27 @@
+---
+- name: Installing httpd
+  hosts: web
+  become: true
+  tasks: 
+    - name: Installing httpd
+      yum:
+        name: httpd
+        state: present
+      tags:
+        - install
+    - name: Copying the file
+      copy: 
+        src: /home/ec2-user/ansible/files/httpd.conf
+        dest: /var/www/html/index.html
+        mode: 0644
+        backup: yes
+    - name: Starting the service
+      service: 
+        name: httpd
+        state: started
+      tags:
+        - restart
+        - install
+        
+   ## We provide tags so that we can only run particular block of code in playbook, but tag is smart enough to connect between two tags, In this case we have install and restart called in tags 
+   ## now two task will be executed with this playbook, eg: ansible-playbook -i ../hosts httpd.yml --tags install (will only run tags with install i.e 2 block will run)
